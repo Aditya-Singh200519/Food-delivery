@@ -14,8 +14,12 @@ const Home = () => {
      <Dishes/>
      <Cusine/>
      </div>
-      jhsjdhhskd
-      
+     <div class="relative">
+  
+</div>
+
+      dkssjkkfjskfskskfk
+      sfkskskfh
     </div>
   )
 }

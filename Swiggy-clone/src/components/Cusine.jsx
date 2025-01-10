@@ -27,7 +27,7 @@ const Cusine = () => {
       {/* Upper Section */}
       <div className="flex justify-between items-center sm:gap-3 md:gap-5 lg:gap-6 xl:gap-8 2xl:gap-10">
         <div className="pl-3  text-gray-700 font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl custom-range:text-xl">
-          Popular Cusines
+          Popular Cuisines
         </div>
         <div className="flex pr-3 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
           {/* Left Arrow */}
@@ -52,12 +52,15 @@ const Cusine = () => {
         ref={containerRef}
         className="mt-2 flex gap-3 overflow-x-auto sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 scrollbar-hide custom-range:flex-col w-[100%] "
       >
-        <div className="flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full  ">
-          <img
-            className="w-full  h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl custom-range:h-[200px]"
-            src={cusine}
-            alt="Cuisine 1"
-          />
+        <div className="cursor-pointer transition-transform hover:scale-95 flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full">
+          <div className="relative w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] custom-range:h-[200px]">
+            <img
+              className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
+              src={cusine}
+              alt="Cuisine 1"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl sm:rounded-b-2xl md:rounded-b-3xl"></div>
+          </div>
           <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold mt-2">
             Name 1
           </p>
@@ -72,12 +75,15 @@ const Cusine = () => {
           </p>
         </div>
 
-        <div className="flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full ">
-          <img
-            className="w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl custom-range:h-[200px]"
-            src={cusine}
-            alt="Cuisine 1"
-          />
+        <div className="cursor-pointer transition-transform hover:scale-95 flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full">
+          <div className="relative w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] custom-range:h-[200px]">
+            <img
+              className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
+              src={cusine}
+              alt="Cuisine 1"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl sm:rounded-b-2xl md:rounded-b-3xl"></div>
+          </div>
           <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold mt-2">
             Name 1
           </p>
@@ -92,13 +98,15 @@ const Cusine = () => {
           </p>
         </div>
 
-
-       <div className="flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full ">
-          <img
-            className="w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl custom-range:h-[200px]"
-            src={cusine}
-            alt="Cuisine 1"
-          />
+        <div className="cursor-pointer transition-transform hover:scale-95 flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full">
+          <div className="relative w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] custom-range:h-[200px]">
+            <img
+              className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
+              src={cusine}
+              alt="Cuisine 1"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl sm:rounded-b-2xl md:rounded-b-3xl"></div>
+          </div>
           <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold mt-2">
             Name 1
           </p>
@@ -113,12 +121,15 @@ const Cusine = () => {
           </p>
         </div>
 
-        <div className="flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full ">
-          <img
-            className="w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl custom-range:h-[200px]"
-            src={cusine}
-            alt="Cuisine 1"
-          />
+        <div className="cursor-pointer transition-transform hover:scale-95 flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full">
+          <div className="relative w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] custom-range:h-[200px]">
+            <img
+              className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
+              src={cusine}
+              alt="Cuisine 1"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl sm:rounded-b-2xl md:rounded-b-3xl"></div>
+          </div>
           <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold mt-2">
             Name 1
           </p>
@@ -132,12 +143,15 @@ const Cusine = () => {
             Location
           </p>
         </div>
-        <div className="flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full ">
-          <img
-            className="w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl custom-range:h-[200px]"
-            src={cusine}
-            alt="Cuisine 1"
-          />
+        <div className="cursor-pointer transition-transform hover:scale-95 flex shadow-lg rounded-2xl bg-slate-50 w-28 sm:w-36 md:w-44 lg:w-52 xl:w-60 2xl:w-72 p-1.5 flex-col flex-shrink-0 custom-range:w-full">
+          <div className="relative w-full h-[140px] sm:h-[160px] md:h-[170px] lg:h-[180px] xl:h-[190px] 2xl:h-[200px] custom-range:h-[200px]">
+            <img
+              className="w-full h-full rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl"
+              src={cusine}
+              alt="Cuisine 1"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-xl sm:rounded-b-2xl md:rounded-b-3xl"></div>
+          </div>
           <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-semibold mt-2">
             Name 1
           </p>
@@ -151,8 +165,6 @@ const Cusine = () => {
             Location
           </p>
         </div>
-
-       
       </div>
     </div>
   );
