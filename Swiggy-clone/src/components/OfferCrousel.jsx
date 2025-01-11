@@ -11,7 +11,7 @@ import offerimg6 from '../assets/images/Crousel image/img4.png';
 
 const OfferCrousel = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-10 mx-2 ">
       <Carousel
         autoPlay={true}
         infiniteLoop={true}
@@ -26,35 +26,35 @@ const OfferCrousel = () => {
       >
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className=" rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg3}
             alt="Offer 1"
           />
         </div>
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg}
             alt="Offer 2"
           />
         </div>
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg2}
             alt="Offer 3"
           />
         </div>
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg4}
             alt="Offer 4"
           />
         </div>
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg5}
             alt="Offer 5"
           />
@@ -62,7 +62,7 @@ const OfferCrousel = () => {
 
         <div>
           <img
-            className="w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
+            className=" rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
             src={offerimg6}
             alt="Offer 5"
           />
