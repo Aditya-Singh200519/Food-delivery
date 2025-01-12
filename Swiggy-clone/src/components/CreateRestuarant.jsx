@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { app } from "../firebase";
+import { app } from "../firebase/firebase";
 import {
   getDownloadURL,
   getStorage,

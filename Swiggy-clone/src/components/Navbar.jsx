@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/images/logo.png";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,10 @@ const Navbar = () => {
         {/* left section */}
         <div className="flex items-center custom-range:gap-3 w-[40%] sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8">
           {/* logo */}
-          <div><img className="custom-range:w-8 sm:w-12 md:w-14 lg:w-16 xl:w-18 2xl:w-20" src={logo} alt="" /></div>
+          <NavLink to={'/'}>
+          <div><img className="custom-range:w-8 sm:w-10 md:w-12 lg:w-12 xl:w-14 2xl:w-16" src={logo} alt="" /></div>
+          </NavLink>
+         
           <div className="border-b-2 border-gray-700 custom-range:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">Others</div>
           <div><i className="fas fa-caret-down text-red-500 custom-range:text-s pb-1 sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl"></i></div>
         </div>

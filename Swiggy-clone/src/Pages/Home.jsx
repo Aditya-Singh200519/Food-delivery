@@ -16,6 +16,7 @@ const Home = () => {
     
      <Restraunts/>
      <Cusine/>
+     
      </div>
 
      
