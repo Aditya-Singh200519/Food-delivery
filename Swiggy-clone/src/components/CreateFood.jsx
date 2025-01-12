@@ -6,6 +6,8 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { produrl } from "../helper";
+
 
 const FoodForm = ({ rests }) => {
   const [foodData, setFoodData] = useState({
@@ -18,8 +20,8 @@ const FoodForm = ({ rests }) => {
     restaurantId: "",
     rating: 0, // Default rating
     reviewCount: 0, // Default review count
-  });
-
+  }); 
+  const [isLoading, setisLoading] = useState(false)
   const [file, setFile] = useState(null);
 
   // Handle text inputs
@@ -87,10 +89,11 @@ const FoodForm = ({ rests }) => {
   const handleSubmit = async () => {
     if (file) {
       try {
+        setisLoading(true)
         const url = await storeImage(file);
         const updatedFoodData = { ...foodData, imageUrl: url };
 
-        const response = await fetch("http://localhost:4000/food/createFood", {
+        const response = await fetch(`${produrl}food/createFood`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -101,6 +104,8 @@ const FoodForm = ({ rests }) => {
         const data = await response.json();
 
         if (response.status===201) {
+
+          setisLoading(false)
           console.log("Food item created successfully:", data);
           setFoodData({
             name: "",
@@ -114,14 +119,14 @@ const FoodForm = ({ rests }) => {
             reviewCount: 0, // Default review count
           });
           setFile(null); 
-          alert("Food item created successfully!");
+          window.location.reload();
         } else {
           console.error("Failed to create food item:", data);
           alert("Failed to create food item.");
         }
       } catch (error) {
+        setisLoading(false)
         console.error("Error:", error);
-        alert("An error occurred.");
       }
     } else {
       alert("Please select an image for the food item.");
@@ -220,6 +225,8 @@ const FoodForm = ({ rests }) => {
           <option value="Pizza">Pizza</option>
           <option value="Noodles">Noodles</option>
           <option value="Chinese">Chinese</option>
+          <option value="Momos">Momos</option>
+          <option value="NonVeg">NonVeg</option>
           <option value="Kebabs">Kebabs</option>
           <option value="Rolls">Rolls</option>
           <option value="Cakes">Cakes</option>
@@ -309,7 +316,7 @@ const FoodForm = ({ rests }) => {
         onClick={handleSubmit}
         className="w-full py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-300"
       >
-        Create Food Item
+        {isLoading?"Processing":"Create Food Item"}
       </button>
     </form>
   );

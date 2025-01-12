@@ -6,6 +6,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { produrl } from "../helper";
 
 const CreateRestaurant = () => {
   const [formdata, setFormdata] = useState({
@@ -14,16 +15,16 @@ const CreateRestaurant = () => {
     rating: 0,
     reviewcount: 0,
     imageurl: "",
-    cuisine: [], // Initialize as an empty array to hold multiple cuisines
+    cuisine: [],
   });
 
   const [file, setFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false); // State to manage the loader
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
 
     if (name === "cuisine") {
-      // If the cuisine field is a multi-select, handle as an array
       setFormdata((prevData) => ({
         ...prevData,
         [name]: Array.from(event.target.selectedOptions, (option) => option.value),
@@ -49,6 +50,7 @@ const CreateRestaurant = () => {
       const fileName = new Date().getTime() + file.name;
       const storageRef = ref(storage, `restaurant/` + fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
+
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -69,10 +71,11 @@ const CreateRestaurant = () => {
 
   const handleSubmit = async () => {
     if (file) {
+      setIsLoading(true); // Show loader
       try {
         const url = await storeImage(file);
         const updatedFormdata = { ...formdata, imageurl: url };
-        const response = await fetch("http://localhost:4000/restuarant/createRestuarant", {
+        const response = await fetch(`${produrl}restuarant/createRestuarant`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -90,17 +93,17 @@ const CreateRestaurant = () => {
             rating: 0,
             reviewcount: 0,
             imageurl: "",
-            cuisine: [],  // Resetting the cuisine field as well
+            cuisine: [],
           });
-          setFile(null); 
-          
+          setFile(null);
+          window.location.reload();
         } else {
           console.error("Failed to create restaurant:", data);
-          
         }
       } catch (error) {
         console.error("Error:", error.message);
-        
+      } finally {
+        setIsLoading(false); // Hide loader
       }
     } else {
       alert("Please select an image for the restaurant.");
@@ -223,8 +226,14 @@ const CreateRestaurant = () => {
         onClick={handleSubmit}
         className="w-full py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-300"
       >
-        Create Restaurant
+        {isLoading ? "Processing..." : "Create Restaurant"}
       </button>
+
+      {isLoading && (
+        <div className="flex justify-center mt-4">
+          <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-orange-500"></div>
+        </div>
+      )}
     </form>
   );
 };
