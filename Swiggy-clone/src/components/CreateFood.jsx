@@ -7,7 +7,7 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 
-const FoodForm = () => {
+const FoodForm = ({ rests }) => {
   const [foodData, setFoodData] = useState({
     name: "",
     description: "",
@@ -16,6 +16,8 @@ const FoodForm = () => {
     isVeg: true,
     type: "",
     restaurantId: "",
+    rating: 0, // Default rating
+    reviewCount: 0, // Default review count
   });
 
   const [file, setFile] = useState(null);
@@ -25,7 +27,12 @@ const FoodForm = () => {
     const { name, value } = event.target;
     setFoodData((prevData) => ({
       ...prevData,
-      [name]: name === "isVeg" ? value === "true" : value, // Parse `isVeg` as boolean
+      [name]:
+        name === "isVeg"
+          ? value === "true"
+          : name === "rating" || name === "reviewCount"
+          ? parseFloat(value) || 0
+          : value,
     }));
   };
 
@@ -35,6 +42,20 @@ const FoodForm = () => {
     if (selectedFile) {
       setFile(selectedFile);
     }
+  };
+
+  const handleRestaurantSelect = (event) => {
+    setFoodData((prevData) => ({
+      ...prevData,
+      restaurantId: event.target.value,
+    }));
+  };
+
+  const handleFoodTypeSelect = (event) => {
+    setFoodData((prevData) => ({
+      ...prevData,
+      type: event.target.value,
+    }));
   };
 
   const storeImage = async (file) => {
@@ -79,8 +100,20 @@ const FoodForm = () => {
 
         const data = await response.json();
 
-        if (response.ok) {
+        if (response.status===201) {
           console.log("Food item created successfully:", data);
+          setFoodData({
+            name: "",
+            description: "",
+            price: 0,
+            imageUrl: "",
+            isVeg: true,
+            type: "",
+            restaurantId: "",
+            rating: 0, // Default rating
+            reviewCount: 0, // Default review count
+          });
+          setFile(null); 
           alert("Food item created successfully!");
         } else {
           console.error("Failed to create food item:", data);
@@ -175,33 +208,86 @@ const FoodForm = () => {
         >
           Food Type
         </label>
-        <input
-          type="text"
+        <select
           name="type"
           id="type"
-          placeholder="Enter the food type (e.g., Pizza, Burger)"
           value={foodData.type}
-          onChange={handleInputChange}
-          autoComplete="off"
+          onChange={handleFoodTypeSelect}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-        />
+        >
+          <option value="">Select a food type</option>
+          <option value="Burger">Burger</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Noodles">Noodles</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Kebabs">Kebabs</option>
+          <option value="Rolls">Rolls</option>
+          <option value="Cakes">Cakes</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Chicken Curry">Chicken Curry</option>
+          <option value="Mutton Curry">Mutton Curry</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Biryani">Biryani</option>
+          <option value="Paratha">Paratha</option>
+          <option value="Chaat">Chaat</option>
+          <option value="Dosa">Dosa</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
       <div>
         <label
           htmlFor="restaurantId"
           className="block text-sm p-1 font-medium text-gray-700"
         >
-          Restaurant ID
+          Select Restaurant
         </label>
-        <input
-          type="text"
+        <select
           name="restaurantId"
           id="restaurantId"
-          placeholder="Enter the restaurant ID"
           value={foodData.restaurantId}
-          onChange={handleInputChange}
-          autoComplete="off"
+          onChange={handleRestaurantSelect}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+        >
+          <option value="">Select a restaurant</option>
+          {rests.map((rest) => (
+            <option key={rest._id} value={rest._id}>
+              {rest.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label
+          htmlFor="rating"
+          className="block text-sm p-1 font-medium text-gray-700"
+        >
+          Rating (Out of 5)
+        </label>
+        <input
+          type="number"
+          name="rating"
+          id="rating"
+          placeholder="Enter rating"
+          onChange={handleInputChange}
+          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+          
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="reviewCount"
+          className="block text-sm p-1 font-medium text-gray-700"
+        >
+          Review Count
+        </label>
+        <input
+          type="number"
+          name="reviewCount"
+          id="reviewCount"
+          placeholder="Enter review count"
+          onChange={handleInputChange}
+          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+          
         />
       </div>
       <div>

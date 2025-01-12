@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import CreateFood from '../components/CreateFood.jsx'
 import CreateRestuarant from "../components/CreateRestuarant.jsx";
 
 const Admin = () => {
-  
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/restuarant/getAllRestuarant");
+        if(response.status===200){
+        const data = await response.json();
+      console.log(data)
+        setRestaurants(data); // Store the response in the state
+        }
+      } catch (error) {
+        console.log("error",error.message)
+      }
+    };
+
+    fetchRestaurants();
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100">
@@ -23,7 +40,7 @@ const Admin = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
             Create Food Item
           </h2>
-          <CreateFood/>
+          <CreateFood rests={restaurants}/>
         </div>
       </div>
     </div>
