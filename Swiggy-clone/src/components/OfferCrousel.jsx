@@ -27,35 +27,35 @@ const OfferCrousel = () => {
         <div>
           <img
             className=" rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg3}
+            src={offerimg}
             alt="Offer 1"
           />
         </div>
         <div>
           <img
             className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg}
+            src={offerimg3}
             alt="Offer 2"
           />
         </div>
         <div>
           <img
             className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg2}
+            src={offerimg}
             alt="Offer 3"
           />
         </div>
         <div>
           <img
             className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg4}
+            src={offerimg2}
             alt="Offer 4"
           />
         </div>
         <div>
           <img
             className="rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg5}
+            src={offerimg}
             alt="Offer 5"
           />
         </div>
@@ -63,7 +63,7 @@ const OfferCrousel = () => {
         <div>
           <img
             className=" rounded-md w-full object-cover custom-range:h-48 sm:h-56 md:h-64 lg:h-72 2xl:h-96"
-            src={offerimg6}
+            src={offerimg5}
             alt="Offer 5"
           />
         </div>

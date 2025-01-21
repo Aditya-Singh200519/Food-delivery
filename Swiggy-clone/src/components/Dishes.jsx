@@ -41,7 +41,7 @@ const Dishes = () => {
   };
 
   return (
-    <div className="border-t-2 pt-1 shadow-md rounded-lg w-[85%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] 2xl:w-[70%] mx-auto mt-12 overflow-hidden pb-8">
+    <div className="border-t-2 pt-1 shadow-md rounded-lg w-[90%] sm:w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%] 2xl:w-[80%] mx-auto mt-12 overflow-hidden pb-8">
       {/* upper Section */}
       <div className="flex justify-between items-center sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
         <div className="pl-4 text-gray-700 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
@@ -68,28 +68,25 @@ const Dishes = () => {
       {/* lower Items section */}
       <div
         ref={containerRef}
-        className="mt-6 scrollbar-hide sm:mt-2 md:mt-3 lg:mt-4 xl:mt-6 overflow-x-auto scroll-smooth flex gap-4 sm:gap-6 md:gap-8"
+        className="mt-6 scrollbar-hide sm:mt-2 md:mt-3 lg:mt-4 xl:mt-6 overflow-x-auto scroll-smooth flex gap-4 sm:gap-6 md:gap-14"
       >
         {Dishes ? (
-          Dishes.length > 0 ? (
+          
             Dishes.map((dish) => (
-              <div key={dish.id} className="flex flex-col items-center flex-shrink-0">
+              <div key={dish._id} className="flex flex-col items-center flex-shrink-0 ">
                 <NavLink to={""}>
                   <img
-                    className=" w-36 h-36 rounded-xl sm:w-24 md:w-28 lg:w-32 xl:w-36 2xl:w-40  custom-range:w-28 custom-range:h-20"
+                    className=" w-36 h-36 rounded-xl sm:w-24 md:w-28 lg:w-32 xl:w-36 2xl:w-36  custom-range:w-28 custom-range:h-20"
                     src={dish.imageUrl}
                     alt="Cuisine Item"
                   />
                 </NavLink>
-                <p className="text-center text-gray-600 mt-2 text-sm sm:text-base md:text-lg custom-range:text-[10px]">
+                <p className="text-center text-gray-600 mt-2 text-sm sm:text-base md:text-md  2xl:text-sm   custom-range:text-[10px]">
                   {dish.name}
                 </p>
               </div>
             ))
-          ) : (
-            <p>no dishes available</p>
-          )
-        ) : (
+          )  : (
           <p>loading..</p>
         )}
       </div>

@@ -5,6 +5,7 @@ import Cusine from "./components/Dishes";
 import Home from "./Pages/Home";
 import { BrowserRouter as Router, Route, Routes, createBrowserRouter, RouterProvider } from "react-router-dom";
 import Admin from "./Pages/Admin";
+import CreateRestaurant from "./components/CreateRestuarant";
 import RestrauntMenu from "./components/RestrauntMenu";
 
 const router = createBrowserRouter([
@@ -17,12 +18,16 @@ const router = createBrowserRouter([
     element:<Admin/>
   },
   {
-    path:'/restrauntmenu',
+    path:'/restrauntmenu/:id',
     element: <div>
-      <Navbar/>
+      
       <RestrauntMenu/>
     </div>
-  }
+  },
+  {
+    path:'/createrestraunt',
+    element:<CreateRestaurant/>
+  },
  
 ]
   

@@ -12,7 +12,7 @@ const Restraunts = () => {
       
       const response = await fetch('https://swiggybackend-e1fj.onrender.com/restuarant/getAllRestuarant')
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       setRestraunt(data)
 
 
@@ -28,7 +28,7 @@ const Restraunts = () => {
   }, [])
   
   return (
-    <div className="w-[85%] border-t-2 p-1 rounded-xl sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] 2xl:w-[70%] mx-auto mt-16">
+    <div className="w-[90%] border-t-2 p-1 rounded-xl sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[%] 2xl:w-[80%] mx-auto mt-16">
       {/* top section  */}
       <div>
         <div className="pl-1 text-gray-700 font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
@@ -38,26 +38,23 @@ const Restraunts = () => {
       </div>
 
       {/* lower section */}
-      <div className="flex flex-wrap shadow-md rounded-lg gap-8 p-1">
+      <div className="flex  flex-wrap shadow-md rounded-lg gap-8 p-1">
         {/* card  */}
-
-
-
         {restraunts ?
 
             (restraunts.length > 0 ? (
               restraunts.map((restraunt)=>
               (
                 
-                <NavLink key={restraunt._id} to={`/restrauntmenu/${restraunt._id}`}>
+                <NavLink key= {restraunt._id}  to={`/restrauntmenu/${restraunt._id}`}>
 
 
 
-                <div key={restraunt._id} className="rounded-md cursor-pointer transition-transform hover:scale-95 custom-range:flex gap-4 sm:w-[230px]">
+                <div key={restraunt._id} className=" rounded-md cursor-pointer transition-transform hover:scale-95 custom-range:flex gap-3 sm:w-[230px] 2xl:w-[275px] lg:w-[240px]">
                   {/* left section image  */}
-                  <div className="custom-range:w-[45%] relative">
+                  <div className=" custom-range:w-[45%] relative">
                     <img
-                      className="rounded-lg mb-2 w-full custom-range:w-[full]"
+                      className="rounded-lg mb-2 w-full 2xl:h-44 lg:h-44 custom-range:w-[full] "
                       src={restraunt.imageUrl}
                       alt=""
                     />
@@ -109,3 +106,4 @@ const Restraunts = () => {
 };
 
 export default Restraunts;
+ 
